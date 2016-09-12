@@ -229,9 +229,9 @@ App.stage4.prototype = {
           this.collectPoison(skull, otherPlayer);
         }, null, this);
       }
-      if (App.info.players[i].player.info.health <= 0) {
-        this.dead(App.info.players[i].player);
-      }
+      // if (App.info.players[i].player.info.health <= 0) {
+      //   this.dead(App.info.players[i].player);
+      // }
     }
 
     // setInterval(function() {

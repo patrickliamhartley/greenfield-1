@@ -168,17 +168,17 @@ App.stage1.prototype = {
  
     }
 
-    //key1 = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-    this.input.keyboard.addKeyCapture([Phaser.Keyboard.SPACEBAR]);
+    // //key1 = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+    // this.input.keyboard.addKeyCapture([Phaser.Keyboard.SPACEBAR]);
 
     // if (key1.isDown) {
     //   this.state.start('stage4'); 
     // }
 
     
-    if (this.key1.isDown) {
-      this.state.start('stage4'); 
-    }
+    // if (this.key1.isDown) {
+    //   this.state.start('stage4'); 
+    // }
 
     // every frame, each player will emit their x,y,angle to every player
     // including self
