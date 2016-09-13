@@ -228,10 +228,7 @@ App.stage2.prototype = {
         }, null, this);
         this.physics.arcade.collide(App.info.players[i].player, box);
         this.physics.arcade.overlap(App.info.players[i].player, door, function() {
-          playersTouching = true;
-
-          warning = context.add.bitmapText(300,100,"pixel", "HURRY UP!\n DOOR CLOSES SOON!", 30);
-          warning.fixedToCamera = true;
+          context.state.start('store');
         });
       }
     }
@@ -259,18 +256,10 @@ App.stage2.prototype = {
     }, null, this);
 
     this.physics.arcade.overlap(player, door, function() {
-      playerTouching = true;
+      context.state.start('store');
     });
 
-    if (playersTouching && playerTouching) {
-
-      setTimeout(function () {
-        if (!App.info.transitioning) {
-          context.state.start('store'); 
-        } 
-        App.info.transitioning = true; 
-      }, 5000);  
-    }
+  
 
 
 

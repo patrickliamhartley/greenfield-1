@@ -70,6 +70,7 @@ App.stage1.prototype = {
     this.physics.arcade.enable(coin);
     coin.body.gravity.y = 300;
     coin.body.collideWorldBounds = true;
+    coin.body.immovable = true;
     coin.animations.play('bling');
 
     //box
@@ -94,8 +95,7 @@ App.stage1.prototype = {
 
   update: function() {
 
-    playersTouching = false;
-    playerTouching = false;
+
     var context = this;
     var updatedScore = ('Score:' + App.info.score + '\nHealth: ' + Math.floor(App.info.health) + '\nGold: ' + App.info.gold);
     scoreText.text = updatedScore;
@@ -106,7 +106,7 @@ App.stage1.prototype = {
         App.info.players[i].update();
         this.physics.arcade.collide(player, App.info.players[i].player);
         this.physics.arcade.collide(App.info.players[i].player, coin, function(){
-          playersTouching = true;
+          context.state.start('stage2');
         });
         this.physics.arcade.collide(App.info.players[i].player, box);
       }
@@ -124,23 +124,10 @@ App.stage1.prototype = {
     this.physics.arcade.collide(box, platforms);
     this.physics.arcade.collide(player, box);
     this.physics.arcade.collide(player, coin, function() {
-      playerTouching = true;
+  
+      context.state.start('stage2');
       
     });
-
-    if ( App.info.players.length === 0 ) {
-      playersTouching = true;
-    }
-    
-    if (playersTouching && playerTouching) {
-      setTimeout(function () {
-        if (!App.info.transitioning) {
-          context.state.start('stage2');
-        } 
-        App.info.transitioning = true;
-      }, 3000);  
-    }
-    
 
     if (cursors.left.isDown) {
       player.body.velocity.x = -150 * App.info.speed;
