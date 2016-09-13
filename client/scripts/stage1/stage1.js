@@ -65,10 +65,9 @@ App.stage1.prototype = {
     this.key1 = this.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
     //creates coin
-    coin = this.add.sprite(100, 0, 'coin');
+    coin = this.add.sprite(100, 230, 'coin');
     coin.animations.add('bling', [0, 1, 2, 3, 4, 5, 6, 7, 8], 10, true);
     this.physics.arcade.enable(coin);
-    coin.body.gravity.y = 300;
     coin.body.collideWorldBounds = true;
     coin.body.immovable = true;
     coin.animations.play('bling');
