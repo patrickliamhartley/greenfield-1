@@ -69,6 +69,7 @@ App.stage1.prototype = {
     coin.animations.add('bling', [0, 1, 2, 3, 4, 5, 6, 7, 8], 10, true);
     this.physics.arcade.enable(coin);
     coin.body.gravity.y = 300;
+    coin.body.collideWorldBounds = true;
     coin.animations.play('bling');
 
     //box
