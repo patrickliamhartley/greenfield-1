@@ -326,11 +326,11 @@ App.stage4.prototype = {
     scoreText.text = updatedScore;
 
     //if player's health goes below zero, don't allow player to play anymore...;
-    if (App.info.health <= 0) {
-      this.dead(player);
-      poison = false;
-      App.info.gold = Math.floor(App.info.gold / 2); //lose half your gold if you die
-    }
+    // if (App.info.health <= 0) {
+    //   this.dead(player);
+    //   poison = false;
+    //   App.info.gold = Math.floor(App.info.gold / 2); //lose half your gold if you die
+    // }
 
         //death check
     if (App.info.health <= 0) {

@@ -133,7 +133,10 @@ App.stage1.prototype = {
     
     if (playersTouching && playerTouching) {
       setTimeout(function () {
-        context.state.start('stage2'); 
+        if (!App.info.transitioning) {
+          context.state.start('stage2');
+        } 
+        App.info.transitioning = true;
       }, 3000);  
     }
     
@@ -209,6 +212,7 @@ App.info = { // this is the source of truth of info for each stage
   jump: 1,
   difficulty: 1,
   nextStage: null,
+  transitioning: false,
 
  // sets this player's socket
   socket: io.connect('http://107.170.245.62:3000'), // sets this player's socket

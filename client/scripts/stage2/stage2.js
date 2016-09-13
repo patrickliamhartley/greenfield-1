@@ -263,7 +263,10 @@ App.stage2.prototype = {
     if (playersTouching && playerTouching) {
 
       setTimeout(function () {
-        context.state.start('store'); 
+        if (!App.info.transitioning) {
+          context.state.start('store'); 
+        } 
+        App.info.transitioning = true; 
       }, 5000);  
     }
 

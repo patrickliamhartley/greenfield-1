@@ -160,6 +160,7 @@ App.store.prototype = {
       snow.fixedToCamera = true;
     }
 
+    App.info.transitioning = false;
     //this is important to bring in your players!!
     App.info.socketHandlers();
     App.info.stageConnect();
